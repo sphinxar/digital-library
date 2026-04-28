@@ -11,7 +11,9 @@ The Decentralized Library bridges the gap between traditional Web2 databases and
 - **Frontend**: Next.js 15, React 19, Tailwind CSS v4
 - **Backend (Off-chain State)**: Prisma ORM with SQLite (using Better-SQLite3 driver adapters)
 - **Smart Contracts (On-chain State)**: Solana program written in Rust using the Anchor framework
-  Program ID: 46Brqof8bysRqDbaYH1NTdYWfYP53zb1JfXPPX5nC1xL
+
+## `Program ID: 46Brqof8bysRqDbaYH1NTdYWfYP53zb1JfXPPX5nC1xL`
+
 - **Web3 Integration**: `@solana/web3.js`, `@solana/react-hooks` for wallet connection, and native VersionedTransactions.
 
 ## ✨ Features
