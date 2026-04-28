@@ -1,0 +1,29 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Book {
+  id          String   @id @default(cuid())
+  title       String
+  author      String
+  description String
+  priceSol    Float
+  status      String   @default("AVAILABLE") // "AVAILABLE" or "RENTED"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  rentals     Rental[]
+}
+
+model Rental {
+  id          String   @id @default(cuid())
+  bookId      String
+  userPubkey  String
+  txSignature String
+  createdAt   DateTime @default(now())
+  book        Book     @relation(fields: [bookId], references: [id])
+}

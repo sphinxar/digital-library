@@ -1,0 +1,194 @@
+{
+  "address": "46Brqof8bysRqDbaYH1NTdYWfYP53zb1JfXPPX5nC1xL",
+  "metadata": {
+    "name": "solana_programs",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [],
+      "args": []
+    },
+    {
+      "name": "rent_book",
+      "discriminator": [
+        37,
+        229,
+        253,
+        94,
+        54,
+        254,
+        229,
+        152
+      ],
+      "accounts": [
+        {
+          "name": "rental_record",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  110,
+                  116,
+                  97,
+                  108
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "book_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "treasury",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "book_id",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "return_book",
+      "discriminator": [
+        175,
+        169,
+        201,
+        145,
+        70,
+        193,
+        71,
+        83
+      ],
+      "accounts": [
+        {
+          "name": "rental_record",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  110,
+                  116,
+                  97,
+                  108
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "book_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "rental_record"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "book_id",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "RentalRecord",
+      "discriminator": [
+        110,
+        36,
+        95,
+        19,
+        54,
+        107,
+        70,
+        101
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "UnauthorizedReturn",
+      "msg": "You are not authorized to return this book."
+    }
+  ],
+  "types": [
+    {
+      "name": "RentalRecord",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "book_id",
+            "type": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "constants": [
+    {
+      "name": "SEED",
+      "type": "string",
+      "value": "\"anchor\""
+    }
+  ]
+}

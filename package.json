@@ -21,8 +21,14 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@coral-xyz/anchor": "^0.32.1",
+    "@prisma/adapter-better-sqlite3": "^7.8.0",
+    "@prisma/client": "^7.8.0",
     "@solana/client": "^1.2.0",
     "@solana/react-hooks": "^1.1.5",
+    "@solana/web3.js": "^1.98.4",
+    "better-sqlite3": "^12.9.0",
+    "bs58": "^6.0.0",
     "next": "16.1.7",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -30,12 +36,14 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
     "prettier": "^3.6.2",
+    "prisma": "^7.8.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
